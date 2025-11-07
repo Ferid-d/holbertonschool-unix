@@ -1,2 +1,12 @@
 #!/bin/bash
-ls -la
+# Lists all files (including hidden ones) in the current directory, parent directory, and /boot, in long format
+
+echo "Current directory:"
+ls -la .
+
+echo "Parent directory:"
+ls -la ..
+
+echo "/boot directory:"
+ls -la /boot
+
