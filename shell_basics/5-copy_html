@@ -1,2 +1,17 @@
 #!/bin/bash
-cp -u *.html
+# Copies all .html files from the current directory to the parent directory
+# Only copies files that are new or updated
+# Works even if there are no .html files
+
+shopt -s nullglob  # makes *.html expand to nothing if no matches
+html_files=(*.html)
+
+if [ ${#html_files[@]} -eq 0 ]; then
+    # No HTML files found
+    exit 0
+fi
+
+# Copy each file to parent if it doesn't exist or is newer
+for file in "${html_files[@]}"; do
+    cp -u "$file" ..
+done
